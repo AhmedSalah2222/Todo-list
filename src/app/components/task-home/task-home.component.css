@@ -1,0 +1,105 @@
+h3 {
+  text-align: center;
+}
+
+.error-message {
+  color: #e53e3e;
+  /* margin-top: 0.5rem; */
+}
+
+#No_tasks {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+#add:hover{
+  background-color: #B2AC32;
+  color: #333333;
+}
+
+#add{
+  background-color: #333333;
+  color: #B2AC32;
+  font-weight: bold;
+  font-size: small;
+}
+
+#del:hover{
+  background-color: red;
+  color: #333333;
+}
+
+#del{
+  background-color: #333333;
+  color: red;
+  position: absolute;
+  top: 35%;
+  left: 93%;
+  font-weight: bold;
+}
+
+#edit{
+  background-color: #333333;
+  color: #9384f7;
+  position: absolute;
+  top: 35%;
+  left: 87.5%;
+  font-weight: bold;
+  height: 25%;
+  width: 5%;
+}
+
+#edit:hover{
+  background-color: #9384f7;
+  color: #333333;
+}
+
+#save{
+  background-color: #333333;
+  color: #B2AC32;
+  position: absolute;
+  top: 35%;
+  left: 82%;
+  font-weight: bold;
+  height: 25%;
+  width: 5%;
+}
+
+#save:hover{
+  background-color: #B2AC32;
+  color: #333333;
+}
+
+
+#taskInName {
+  max-width: 300px;
+  margin: 0;
+  margin-bottom:-22px;
+}
+
+#taskInDescription {
+  max-width: 600px;
+  margin: 0;
+  margin-bottom:-18px;
+}
+
+#taskInDue_Date {
+  max-width: 125px;
+  margin: 0;
+  margin-bottom:-2px;
+  text-align: center;
+}
+
+
+.edit {
+  border: solid 2px;
+}
+
+.not-edit {
+  border: none;
+}
+
+.crossed {
+  text-decoration: line-through;
+}

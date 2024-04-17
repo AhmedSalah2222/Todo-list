@@ -1,0 +1,50 @@
+<div class="container">
+  <h3 style="padding: 2%;">My ToDo-List application</h3>
+
+  <form (ngSubmit)="add_in_list(taskForm)" #taskForm="ngForm">
+    <div style="text-align: center; padding: 0.5%;" class="form-group">
+      <input #taskname class="form-control" type="text" placeholder="Write task name" ngModel name="name" required> <br>
+      <textarea #taskdescription class="form-control" placeholder="Write task description" ngModel name="description" required></textarea> <br>
+      <input #taskdue_date class="form-control" type="date" ngModel name="due_date" required> <br>
+      <button [disabled]="taskForm.invalid" id="add" type="submit" class="btn btn-primary">Submit</button>
+      <div *ngIf="taskForm.invalid && taskForm.dirty" id="errorMessage" class="error-message">
+        Please fill all fields.
+      </div>
+    </div>
+  </form>
+
+  <div id="No_tasks" *ngIf="lists.length == 0" style="padding: 1%;">
+    <p class="alert alert-info">No tasks until now</p>
+  </div>
+
+  <div *ngIf="lists.length != 0" style="padding: 1%;">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let x of lists; index as i" >
+        <input [ngClass]="{'edit': x.isEditable, 'not-edit': !x.isEditable, 'crossed': x.status}"
+          #taskname type="text" class="form-control" id="taskInName" value="{{ x.name }}"
+          [readOnly]="!x.isEditable"> <br>
+
+        <input [ngClass]="{'edit': x.isEditable, 'not-edit': !x.isEditable, 'crossed': x.status}"
+          #taskdescription type="text" class="form-control" id="taskInDescription" value="{{ x.description }}"
+          [readOnly]="!x.isEditable"> <br>
+
+        <input [ngClass]="{'edit': x.isEditable, 'not-edit': !x.isEditable, 'crossed': x.status}"
+          type="date" id="taskInDue_Date" [(ngModel)]="x.due_date"
+          [readonly]="!x.isEditable"> <br>
+
+        <input style="margin-left: 1%; margin-top: 1.5%;" (change)="onCheck(i)" type="checkbox" [checked]="x.status">
+
+        <button id="save" class="btn btn-warning btn-sm" (click)="onSave(i, taskname.value, taskdescription.value)"
+          [disabled]="!x.isEditable">
+            Save
+        </button>
+
+        <button id="edit" class="btn btn-primary btn-sm" (click)="onEdit(i)"[disabled]="x.isEditable">
+          Edit
+        </button>
+
+        <button id="del" class="btn" (click)="del_from_list(i)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
